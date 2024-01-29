@@ -23,8 +23,8 @@ class ViewState extends base.ViewState {
             ),
           ),
           ElevatedButton(
-            onPressed: () => context.bloc.reload(),
-            child: Text(context.strings.reloadButton),
+            onPressed: context.bloc.reload,
+            child: Text(context.strings.reloadButtonLabel),
           ),
         ],
       ),
@@ -37,6 +37,8 @@ extension ErrorMessage on ErrorType {
     switch (this) {
       case ErrorType.e503:
         return context.strings.examErrorMessage503;
+      case ErrorType.e404:
+        return context.strings.examErrorMessage404;
       case ErrorType.unexpected:
         return context.strings.examErrorMessageUnknown;
     }

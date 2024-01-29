@@ -11,6 +11,7 @@ import 'views/error.dart' as error_view;
 
 enum ErrorType {
   e503,
+  e404,
   unexpected,
   ;
 
@@ -18,6 +19,8 @@ enum ErrorType {
     switch (statusCode) {
       case 503:
         return ErrorType.e503;
+      case 404:
+        return ErrorType.e404;
       default:
         return ErrorType.unexpected;
     }
@@ -37,8 +40,11 @@ class Bloc extends base.Bloc {
   late int count;
   ErrorType errorType = ErrorType.unexpected;
 
+  late final Server service;
+
   @override
   void init() async {
+    service = context.server;
     reload(true);
   }
 
@@ -47,7 +53,7 @@ class Bloc extends base.Bloc {
       emit(loading_view.ViewState());
     }
 
-    final response = ServerResponse(await context.server.data);
+    final response = ServerResponse(await service.data);
 
     if (response.hasError) {
       _handleError(response);
@@ -76,6 +82,18 @@ class Bloc extends base.Bloc {
       return;
     }
 
+    message = response.message!;
+    count = response.count!;
+    imageLink = response.imageLink!;
+
     emit(main_view.ViewState());
+  }
+
+  Future<void> incrementCounter() async {
+    count = await service.addToCount(1);
+    if (isClosed) {
+      return;
+    }
+    updateView();
   }
 }

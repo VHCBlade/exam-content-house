@@ -12,6 +12,8 @@
   "hint2Description":"Hint 2 will help you to complete your task. \n\n1. You should platten the Hint 2 screen (copy folders and code) to create your Exam screen. This should give you a good screen template to start with. \n\n2. All data you need to display can be fetched from context.server.data, similar to the way hint 2 fetches the access key. \n\n3. You should use context.server.addToCount() to store your counter. \n\n4. You can use bloc provider to watch your status change for refreshing your counter. Or you can build your own state management.",
   "examAppbarTitle": "Exam",
   "examErrorMessage503": "Server is busy. Please try again later.",
+  "examErrorMessage404": "We are unable to reach the server at the moment. Please try again later.",
   "examErrorMessageUnknown": "An unexpected error has occurred. Please try again later.",
-  "reloadButton": "Reload"
+  "examCounterButtonLabel": "Counter",
+  "reloadButtonLabel": "Reload"
 }
