@@ -10,7 +10,7 @@ class ServerResponse {
 
   String? get imageLink => baseRequest['image'] as String?;
   String? get message => baseRequest['message'] as String?;
-  String? get count => baseRequest['count'] as String?;
+  int? get count => baseRequest['count'] as int?;
   String? get errorMessage => baseRequest['error_message'] as String?;
 
   final Map<String, dynamic> baseRequest;
