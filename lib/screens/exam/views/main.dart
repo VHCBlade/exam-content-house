@@ -7,8 +7,9 @@ class ViewState extends base.ViewState {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: ListView(
-        children: const [
-          SizedBox(height: 20),
+        children: [
+          const SizedBox(height: 20),
+          Text(context.strings.hint2Description),
         ],
       ),
     );
