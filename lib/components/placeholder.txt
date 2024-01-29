@@ -1,0 +1,1 @@
+Common Components go in this folder! Delete me once you start adding components!
