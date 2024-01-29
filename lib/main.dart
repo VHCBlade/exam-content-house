@@ -37,7 +37,7 @@ class App extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: const [
-            Locale('en', ''), // English, no country codeconst Locale('en', ''),
+            Locale('en', ''), // English, no country code
           ],
 
           // route controls
